@@ -1,14 +1,15 @@
-Install: `go get github.com/grahamking/latency`
+```golang
+import (
+    "log"
+    "github.com/Ansen/latency"
+)
 
-Run: `sudo latency [hostname]`.
+func main() {
+    duration := latency.Latency("localAddr", "1.1.1.1", "443")
+    log.Println("Latency: ", duration)
 
-Example output:
-
-> $ sudo ./latency github.com
-
-> Measuring round-trip latency from 192.168.1.26 to 192.30.252.131 on port 80
-
-> Latency: 116.601914ms
+}
+```
 
 The `sudo` is needed to open a raw socket. If you know how to do this with capabilities, please do tell.
 
